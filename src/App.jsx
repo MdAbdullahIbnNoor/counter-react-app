@@ -1,43 +1,28 @@
-import React, { useState } from 'react'
+import Calculator from "./Calculator";
+import Counter from "./Counter";
 
-function Counter({ count, increment, decrement, reset }) {
-  return (
-    <div className='mt-4 flex flex-col gap-4'>
-      <h1 className='text-lg'>Count: <span className='text-red-500 text-lg font-bold'> {count}</span></h1>
-      <div className='flex gap-4 justify-center'>
-        <button className="bg-red-600 p-2 rounded-lg text-white text-lg font-semibold" onClick={increment}>Increment</button>
-        <button className="bg-blue-600 p-2 rounded-lg text-white text-lg font-semibold" onClick={decrement}>Decrement</button>
-        <button className="bg-green-600 p-2 rounded-lg text-white text-lg font-semibold" onClick={reset}>Reset</button>
-      </div>
-    </div>
-  )
-}
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  function handleIncrement() {
-    setCount(count + 5);
-  }
-  function handleDecrement() {
-    setCount(count - 2);
-  }
-  function handleReset() {
-    setCount(0);
-  }
-
   return (
-    <div className="h-screen bg-orange-500 flex items-center justify-center p-60">
-      <div className="max-w-3xl mx-auto text-center bg-gray-100 p-6 rounded-lg shadow-lg h-auto">
-        <h1 className='font-bold text-3xl text-green-400'>Simple Counter App</h1>
-        <Counter
-          count={count}
-          increment={handleIncrement}
-          decrement={handleDecrement}
-          reset={handleReset}
-        />
+    <div className="min-h-screen bg-gray-200 p-4 flex flex-col items-center">
+      <h1 className="text-3xl text-blue-800 mb-6 mt-4">
+        Simple Modular Counter & Calculator App
+      </h1>
+
+      <div className="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <Counter />
+        <Calculator/>
+        
+
+
       </div>
+
+      <p className="mt-6 text-gray-500 text-sm">
+        Application refactored into two reusable components: Counter and Calculator.
+      </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
